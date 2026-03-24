@@ -1,83 +1,95 @@
-# Автоматизация UI и API тестов для Кинопоиск
+# UI & API Test Automation — Kinopoisk
 
-## Описание
-Автоматизированы UI и API тесты для сайта [Кинопоиск](https://www.kinopoisk.ru/). В проекте реализованы:
-- UI-тесты авторизации и поиска фильма
-- API-тесты поиска фильма
-- Запуск тестов в разных режимах
-- Документированный код с allure
-- Все настройки и тестовые данные вынесены в отдельные файлы
+Automated test suite for [Kinopoisk](https://www.kinopoisk.ru/) — Russia's largest movie database and streaming platform.
 
-## Структура проекта
-- `tests/test_ui.py` — UI тесты (Selenium)
-- `tests/test_api.py` — API тесты (requests)
-- `config/settings.py` — настройки окружения
-- `config/test_data.py` — тестовые данные
-- `requirements.txt` — зависимости
-- `run_tests.py` — запуск тестов в разных режимах
+## About the Project
 
-## Установка зависимостей
-Установите Python 3.10+ и выполните:
-```
+This is a graduation project completed as part of the **QA Automation Engineer** program at [Skypro](https://skypro.ru/). It demonstrates practical skills in UI and API test automation using Python.
+
+## What Is Tested
+
+### UI Tests (Selenium)
+- User authentication (login flow)
+- - Movie search functionality
+ 
+  - ### API Tests (requests)
+  - - Movie search API endpoint
+    - - Response validation
+     
+      - ## Tech Stack
+     
+      - | Tool | Purpose |
+      - |------|---------|
+      - | Python 3.10+ | Programming language |
+      - | Pytest | Test framework |
+      - | Selenium WebDriver | UI automation |
+      - | requests | API testing |
+      - | Allure | Test reporting |
+      - | flake8 | Code linting (PEP8) |
+     
+      - ## Project Structure
+     
+      - ```
+        Diplom-2/
+        ├── tests/
+        │   ├── test_ui.py       # UI tests (Selenium)
+        │   └── test_api.py      # API tests (requests)
+        ├── config/
+        │   ├── settings.py      # Environment settings
+        │   └── test_data.py     # Test data
+        ├── requirements.txt     # Dependencies
+        ├── conftest.py          # Pytest fixtures
+        └── run_tests.py         # Test runner (multiple modes)
+        ```
+
+		## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Demirelena/Diplom-2.git
+cd Diplom-2
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-## Запуск тестов
-- Только UI: `python run_tests.py ui`
-- Только API: `python run_tests.py api`
-- Все тесты: `python run_tests.py`
+## Running Tests
 
-## Особенности UI-тестов
-- При авторизации на сайте появляется капча. Пройдите её вручную, тесты ожидают до 15 секунд.
-- Для корректной работы UI-тестов браузер должен быть открыт (режим headless отключён).
+```bash
+# Run all tests
+python run_tests.py
 
-## Линтер
-Проверка PEP8:
-```
-flake8 tests/ config/
+# Run UI tests only
+python run_tests.py ui
+
+# Run API tests only
+python run_tests.py api
 ```
 
-## Allure отчёты
-1. Запустите тесты с генерацией отчёта:
-	```
-	pytest --alluredir=allure-results
-	```
-2. Сгенерируйте HTML-отчёт:
-	```
-	allure generate allure-results -o allure-report --clean
-	```
-3. Откройте отчёт в браузере:
-	```
-	allure open allure-report
-	```
-Если команда `allure` не найдена, скачайте Allure CLI: https://docs.qameta.io/allure/
-
-## Финальный проект
-Ссылка: [https://www.kinopoisk.ru/](https://www.kinopoisk.ru/)
-# Автоматизация UI и API тестов для Кинопоиск
-
-## Описание
-Автоматизированы UI и API тесты для сайта [Кинопоиск](https://www.kinopoisk.ru/). В проекте реализованы:
-- UI-тесты авторизации и поиска фильма
-- API-тесты поиска фильма
-- Запуск тестов в разных режимах
-- Документированный код с allure
-- Все настройки и тестовые данные вынесены в отдельные файлы
-
-## Структура проекта
-- `tests/test_ui.py` — UI тесты (Selenium)
-- `tests/test_api.py` — API тесты (requests)
-- `config/settings.py` — настройки окружения
-- `config/test_data.py` — тестовые данные
-- `requirements.txt` — зависимости
-
-## Запуск тестов
-- Только UI: `pytest tests/test_ui.py`
-- Только API: `pytest tests/test_api.py`
-- Все тесты: `pytest tests/`
-
-## Линтер
-Проверка PEP8: `flake8 tests/ config/`
-
-## Финальный проект
-Ссылка: [https://www.kinopoisk.ru/](https://www.kinopoisk.ru/)
+> **Note:** UI tests require manual CAPTCHA solving on login. The browser runs in non-headless mode and waits up to 15 seconds for manual input.
+>
+> ## Allure Reports
+>
+> ```bash
+> # Run tests and generate results
+> pytest --alluredir=allure-results
+>
+> # Generate HTML report
+> allure generate allure-results -o allure-report --clean
+>
+> # Open report in browser
+> allure open allure-report
+> ```
+>
+> ## Code Quality
+>
+> ```bash
+> # Check PEP8 compliance
+> flake8 tests/ config/
+> ```
+>
+> ## Author
+>
+> **Elena Demir** — QA Engineer (Manual & Automation)
+> - GitHub: [github.com/Demirelena](https://github.com/Demirelena)
+> - - LinkedIn: [linkedin.com/in/elena-demir-74110a213](https://linkedin.com/in/elena-demir-74110a213)
